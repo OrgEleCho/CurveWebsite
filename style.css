@@ -1,0 +1,39 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+body,html{
+    background-color:rgb(66, 66, 66);
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 100%;
+}
+#main_form{
+    background-color: rgba(255,255,255,0.2);
+    box-sizing: border-box;
+    width:60%;
+    border:2px solid rgba(255,255,255,0.4);
+    position: relative;
+    border-radius: 15px;
+    top:100px;
+    margin: 0 auto;
+    overflow: hidden;
+    padding: 50px ;
+}
+
+
+
+#center_status_div{
+    border-radius: 50%;
+    height: 400px;
+    margin:0 auto;
+    box-shadow: 0 0 30px rgb(102, 223, 217);
+    width: 400px;
+    overflow: hidden;
+    text-align:  center;
+    background-color: rgba(102,223,217,0.8);
+    position: relative;
+
+ 
+}
