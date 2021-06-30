@@ -63,15 +63,11 @@ $(document).ready(function () {
     //clear the canvas
     var w = canvas_dom.width;
     var h = canvas_dom.height;
-    ctx.fillStyle = "rgba(55,55,55,0)";
-    ctx.fillRect(0, 0, w, h);
-    ctx.fillStyle = "";
-
     //begin to make random circles
     //定义几个变量
     var circle_begin_r = 20;
     var circle_end_r=40;
-    var circle_amount = 100;
+    var circle_amount = 50;
     for (var i = 0; i < circle_amount; i++) {
         var the_circle = new circle();
         the_circle.position.x = randomFrom(0, w);

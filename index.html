@@ -5,19 +5,19 @@
     <link rel="stylesheet" type="text/css" href="./style.css">
     <meta charset="utf-8">
     <title>服务器介绍</title>
-    <script src="https://unpkg.com/vue/dist/vue.js"></script>
-    <script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script src="./js/vue.min.js"></script>
+    <script src="./js/jquery.min.js"></script>
 </head>
 
 <body>
-    <div id="canvas_box" style="position: absolute;z-index: 0;padding: 0;filter: blur(2px);">
-        <canvas id="ground_canvas" style="background-color: rgba(0,0,0,0);"></canvas>
+    <div id="canvas_box" style="position: absolute;z-index: -1;padding: 0;filter: blur(2px);">
+        <canvas id="ground_canvas"></canvas>
     </div>
     <div id="main_form">
         <div id="center_status_div" class="surface">
             <div id="server_run">
-                <p v-if="running">服务器运行中</p>
-                <p v-else>服务器挂了</p>
+                <p class="server_status" v-if="running">服务器运行中</p>
+                <p class="server_status" v-else>服务器挂了</p>
             </div>
             <div id="server_data">
                 <p id="players">loading</p>
@@ -37,9 +37,12 @@
         </div>
         <hr style="position: relative;top:50px">
         <h1 style="margin: 0 auto;position: relative;text-align: center;padding: 50px;">正在进行的建造项目</h1>
+        <h3>1.CubeCity</h3>
     </div>
     <script src="./background.js"></script>
-    <script>/*
+    <script>
+        var app=new Vue;
+    /*
     $(document).ready(function a(){
         //begin to get service infomation
         var Requests_link="https://smgoro.top/motdpe.php?ip=chonet.top&port=11264&type=json&callback=?";
