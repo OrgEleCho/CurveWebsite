@@ -23,7 +23,7 @@
                 <p style="font-size: 3.5vw;">Curve</p>
                 <p style="font-size: 2vw;">地图名称:{{world_name}}</p>
                 <p style="font-size: 2vw;">描述:{{introduction}}</p>
-                <p style="font-size: 2vw;">人数:{{nowplayer}}/{{maxplayer}}</p> 
+                <p style="font-size: 2vw;">人数:{{nowplayer}}/{{maxplayer}}</p>
                 <p style="font-size: 2vw;">版本:{{version}}</p>
             </div>
         </div>
@@ -41,46 +41,43 @@
         <hr style="position: relative;top:50px">
         <h1 style="margin: 0 auto;position: relative;text-align: center;padding: 50px;">正在进行的建造项目</h1>
         <h3>1.CubeCity</h3>
+        <h3>2.主城</h3>
+
     </div>
     <script src="./background.js"></script>
     <script>
-        var app=new Vue({
-            el:"#center_status_div",
-            data:{
-                running:true,
-                version:"11.45.12",
-                world_name:"homo",
-                introduction:"pornhub.com",
-                nowplayer:1,
-                maxplayer:10
+        var app = new Vue({
+            el: "#center_status_div",
+            data: {
+                running: true,
+                version: "loading",
+                world_name: "loading",
+                introduction: "loading",
+                nowplayer: "loading",
+                maxplayer: "loading"
 
             }
         })
-    /*
-    $(document).ready(function a(){
-        //begin to get service infomation
-        var Requests_link="https://smgoro.top/motdpe.php?ip=chonet.top&port=11264&type=json&callback=?";
-        $.ajax({
-            async : true,
-            url : Requests_link,
-            type : "GET",
-            dataType : "jsonp", // 返回的数据类型，设置为JSONP方式
-            jsonp : 'callback', //指定一个查询参数名称来覆盖默认的 jsonp 回调参数名 callback
-            jsonpCallback: 'handleResponse', //设置回调函数名
-            data : {
-                q : "javascript",
-                count : 1
-            },
-            success: function(response, status, xhr){
-                console.log('状态为：' + status + ',状态是：' + xhr.statusText);
-                console.log(response);
-            },
-            error:function(response,status,err){
-                console.log(err);
-            }
-        });
-    }
-    )*/
+        var service_status;
+        function update(status, app) {
+            var Requests_link = "http://chonet.top:3002";
+
+            $.get(Requests_link, (data, textStatus) => {
+                status = JSON.parse(data);
+                app.version = status.Version;
+                app.maxplayer = status.MaxPlayers;
+                app.nowplayer = status.NowPlayers;
+                app.world_name = status.SerName;
+                app.introduction = status.WelcomeInfo;
+            })
+
+
+        }
+        $(document).ready(() => {
+            update(service_status, app);
+            setInterval(()=>update(service_status, app), 10000);
+        }
+        )
 
     </script>
 </body>
