@@ -5,49 +5,48 @@
 body{
     height: 100%;
     width: 100%;
-    background: url('https://z3.ax1x.com/2021/06/28/RUAf4s.png');
+    background: url('https://z3.ax1x.com/2021/06/28/RUAf4s.png') no-repeat center top fixed;
     background-size: cover;
-    overflow: hidden;
-}
-body,html{
-    margin: 0;
-    padding: 0;
-    height: 100%;
-    width: 100%;
+    overflow-x: hidden;
+    overflow-y: auto;
+
 }
 #main_form{
-    background-color: rgba(255,255,255,0.2);
-    box-sizing: border-box;
-    width:60%;
+    background-color: rgba(255,255,255,0.7);
+    width:70%;
     border:2px solid rgba(255,255,255,0.4);
     position: relative;
     border-radius: 15px;
     top:100px;
     margin: 0 auto;
-    overflow: hidden;
-    padding: 50px ;
+    padding: 30px ;
 }
 
-.server_status{
-    margin-top: 40px;
-    text-overflow: hidden;
-    text-shadow: -8px 4px 4px #000;
-    font-size: 200%;
-}
-
-#center_status_div{
-    border-radius: 50%;
-    height: 400px;
-    margin:0 auto;
-    width: 400px;
+#server_run{
+    
+    border-radius: 100%;
+    box-sizing: border-box;
+    height: 0;
+    width: 35%;
+    padding-bottom: 35%;
     overflow: hidden;
-    text-align:  center;
     background-color: rgba(102,223,217,0.4);
     border:2px solid rgb(102, 223, 217);
-    position: relative;
-    text-align: center;
     box-shadow: inset 0px 0px 30px #ffffff;
-    
+    text-shadow: 0 0 5px #000;
+    font-size: 3.5vw;
+    text-align: center;
+    position: relative;
+    line-height: 7;
+    float: right;
+}
+#server_info{
+    overflow: hidden;
+    border-radius: 15px;
+    background:rgb(230, 230, 230);
+    padding: 5px;
+    position: relative;
+    width: 60%;
+    float:left;
 
- 
 }

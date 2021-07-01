@@ -10,7 +10,7 @@
 </head>
 
 <body>
-    <div id="canvas_box" style="position: absolute;z-index: -1;padding: 0;filter: blur(2px);">
+    <div id="canvas_box" style="position: absolute;z-index: -1;padding: 0;filter: blur(0px);">
         <canvas id="ground_canvas"></canvas>
     </div>
     <div id="main_form">
@@ -19,15 +19,18 @@
                 <p class="server_status" v-if="running">服务器运行中</p>
                 <p class="server_status" v-else>服务器挂了</p>
             </div>
-            <div id="server_data">
-                <p id="players">loading</p>
-                <p id="world-name">loading</p>
-                <p id="version">loading</p>
-                <p id="game-mode">loading</p>
+            <div id="server_info">
+                <p style="font-size: 3.5vw;">Curve</p>
+                <p style="font-size: 2vw;">地图名称:{{world_name}}</p>
+                <p style="font-size: 2vw;">描述:{{introduction}}</p>
+                <p style="font-size: 2vw;">人数:{{nowplayer}}/{{maxplayer}}</p> 
+                <p style="font-size: 2vw;">版本:{{version}}</p>
             </div>
         </div>
-        <hr style="position: relative;top:20px">
-        <div id="introduce" style="position: relative;top:40px">
+        <div style="clear: both;"></div>
+        <br>
+        <hr style="position: relative;;">
+        <div id="introduce" style="position: relative;">
             <h1>我们永远在路上</h1>
             <h2>我们致力于营造一个良好的原版生存体验</h2>
             <h2>尽我们所能，与玩家们成为朋友</h2>
@@ -41,7 +44,18 @@
     </div>
     <script src="./background.js"></script>
     <script>
-        var app=new Vue;
+        var app=new Vue({
+            el:"#center_status_div",
+            data:{
+                running:true,
+                version:"11.45.12",
+                world_name:"homo",
+                introduction:"pornhub.com",
+                nowplayer:1,
+                maxplayer:10
+
+            }
+        })
     /*
     $(document).ready(function a(){
         //begin to get service infomation
