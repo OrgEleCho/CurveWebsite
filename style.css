@@ -12,7 +12,7 @@ body{
 
 }
 #main_form{
-    background-color: rgba(255,255,255,0.7);
+    background-color: rgba(255,255,255,0.2);
     width:70%;
     border:2px solid rgba(255,255,255,0.4);
     position: relative;
@@ -27,9 +27,8 @@ body{
     box-sizing: border-box;
     width: 35%;
     overflow: hidden;
-    background-color: rgba(102,223,217,0.4);
-    border:2px solid rgb(102, 223, 217);李家骏
-    box-shadow: inset 0px 0px 30px #ffffff;
+    background-color: rgba(255, 255, 255, 0.4);
+    border:2px solid rgb(255, 255, 255);
     text-shadow: 0 0 5px #000;
     font-size: 3.5vw;
     text-align: center;
@@ -40,9 +39,8 @@ body{
 #server_info{
     overflow: hidden;
     border-radius: 15px;
-    box-shadow: inset 0px 0px 30px #ffffff;
-    background-color: rgba(102,223,217,0.4);
-    border:2px solid rgb(102, 223, 217);
+    background-color: rgba(255, 255, 255, 0.4);
+    border:2px solid rgb(255, 255, 255);
     padding: 5px;
     position: relative;
     width: 60%;
