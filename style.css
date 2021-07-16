@@ -23,27 +23,26 @@ body{
 }
 
 #server_run{
-    
-    border-radius: 100%;
+    border-radius: 15px;
     box-sizing: border-box;
-    height: 0;
     width: 35%;
-    padding-bottom: 35%;
     overflow: hidden;
     background-color: rgba(102,223,217,0.4);
-    border:2px solid rgb(102, 223, 217);
+    border:2px solid rgb(102, 223, 217);李家骏
     box-shadow: inset 0px 0px 30px #ffffff;
     text-shadow: 0 0 5px #000;
     font-size: 3.5vw;
     text-align: center;
+    line-height: 17vw;
     position: relative;
-    line-height: 7;
     float: right;
 }
 #server_info{
     overflow: hidden;
     border-radius: 15px;
-    background:rgb(230, 230, 230);
+    box-shadow: inset 0px 0px 30px #ffffff;
+    background-color: rgba(102,223,217,0.4);
+    border:2px solid rgb(102, 223, 217);
     padding: 5px;
     position: relative;
     width: 60%;

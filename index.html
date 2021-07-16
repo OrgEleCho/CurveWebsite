@@ -49,7 +49,7 @@
         var app = new Vue({
             el: "#center_status_div",
             data: {
-                running: true,
+                running: false,
                 version: "loading",
                 world_name: "loading",
                 introduction: "loading",
@@ -63,6 +63,7 @@
             var Requests_link = "http://chonet.top:3002";
 
             $.get(Requests_link, (data, textStatus) => {
+                app.running=true
                 status = JSON.parse(data);
                 app.version = status.Version;
                 app.maxplayer = status.MaxPlayers;
