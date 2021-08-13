@@ -60,7 +60,7 @@
         })
         var service_status;
         function update(status, app) {
-            var Requests_link = "http://chonet.top:3002";
+            var Requests_link = "http://chonet.top:3001/ServerStatus?OutFormat=json";
 
             $.get(Requests_link, (data, textStatus) => {
                 app.running=true
@@ -68,8 +68,8 @@
                 app.version = status.Version;
                 app.maxplayer = status.MaxPlayers;
                 app.nowplayer = status.NowPlayers;
-                app.world_name = status.SerName;
-                app.introduction = status.WelcomeInfo;
+                app.world_name = status.WorldName;
+                app.introduction = status.ServerName;
             })
 
 
