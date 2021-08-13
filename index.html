@@ -7,9 +7,89 @@
     <title>服务器介绍</title>
     <script src="./js/vue.min.js"></script>
     <script src="./js/jquery.min.js"></script>
+    <style>
+        
+        .top{
+    /* 设置宽度高度背景颜色 */
+    height: 50px; /*高度改为自动高度*/
+    width:100%;
+    margin-left: 0;
+    background:rgba(244,244,244,1.0);
+    position: fixed; /*固定在顶部*/
+    left:0;
+    top: 0;/*离顶部的距离为0*/
+    margin-bottom: 5px;
+    /*backdrop-filter:blur(4px);*/
+    box-shadow:0px 15px 10px -15px #000;
+}
+.top ul{
+    /* 清除ul标签的默认样式 */
+    width: auto;/*宽度也改为自动*/
+    list-style-type: none;
+    white-space:nowrap;
+    overflow: hidden;
+    margin-left: 12%;
+    /* margin-top: 0;          */
+    padding: 0;
+
+}
+.top li {
+    float:left; /* 使li内容横向浮动，即横向排列  */
+    margin-right:2%;  /* 两个li之间的距离*/
+    position: relative;
+    top: 50%; /*偏移*/
+    overflow: hidden;
+}
+
+.top li a{
+   /* 设置链接内容显示的格式*/
+    display: block; /* 把链接显示为块元素可使整个链接区域可点击 */
+    color:black;
+    text-align: center;
+    padding: 3px;
+    overflow: hidden;
+    text-decoration: none; /* 去除下划线 */
+    font-size: 20px;
+    
+}
+.top li a:hover{
+    /*background-color: #111;*/
+    -webkit-animation: scaleDraw 5s ease-in-out infinite;
+}
+.top ul li ul{
+    /* 设置二级菜单 */
+    margin-left: -0.2px;
+    border-radius: 15px;
+    background:rgba(60,60,60,0.7);
+    position: relative;
+    display: none; /* 默认隐藏二级菜单的内容 */
+
+}
+.top ul li ul li{
+    /* 二级菜单li内容的显示 */
+    
+    float:none;
+    text-align: center;
+}
+.top ul li:hover ul{
+    /* 鼠标选中二级菜单内容时 */
+    animation: fade-in;/*动画名称*/  
+    animation-duration: 0.6s;/*动画持续时间*/  
+    -webkit-animation:fade-in 0.6s;/*针对webkit内核*/  
+    display: block;
+}
+    </style>
 </head>
 
 <body>
+    <div class="top">
+                   <center> 
+                    <ul>
+	            <li><a href="">Curve</a></li>
+                    <li><a href="https://vertexstudio.xyz">主站</a></li>
+					</ul>
+                    </center> 
+            </div>
     <div id="canvas_box" style="position: absolute;z-index: -1;padding: 0;filter: blur(0px);">
         <canvas id="ground_canvas"></canvas>
     </div>
