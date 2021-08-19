@@ -11,102 +11,104 @@
     <script src="./js/jquery.min.js"></script>
   </head>
 
-  <body>
-    <div
-      id="canvas_box"
-      style="position: absolute; z-index: -1; padding: 0; filter: blur(0px)"
-    >
-      <canvas id="ground_canvas"></canvas>
-    </div>
-    <div class="top">
-      <ul>
-        <li><a href="">Curve</a></li>
-        <li><a href="https://vertexstudio.xyz">主站</a></li>
-        <li>
-          <a href="#">下载</a>
-          <ul>
-            <li>
-              <a href="downloads/CurveLightUtility.exe">CurveLightUtility</a>
-            </li>
-            <li>
-              <a href="downloads/CurveLightUtility.cxlib">CommandCube扩展</a>
-            </li>
-          </ul>
-        </li>
-      </ul>
-    </div>
+<head>
+  <link rel="stylesheet" type="text/css" href="./style.css" />
+  <link rel="stylesheet" type="text/css" href="./top.css" />
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <meta charset="utf-8" />
+  <title>Minecraft Curve服务器官方网站qwq</title>
+  <script src="./js/vue.min.js"></script>
+  <script src="./js/jquery.min.js"></script>
+</head>
 
-    <div id="main_form">
-      <div id="center_status_div" class="surface">
-        <div id="server_run">
-          <p class="server_status" v-if="running">服务器运行中</p>
-          <p class="server_status" v-else>服务器挂了</p>
-        </div>
-        <div id="server_info">
-          <p style="font-size: 3.5vw">Curve</p>
-          <p style="font-size: 2vw">地图名称:{{world_name}}</p>
-          <p style="font-size: 2vw">描述:{{introduction}}</p>
-          <p style="font-size: 2vw">人数:{{nowplayer}}/{{maxplayer}}</p>
-          <p style="font-size: 2vw">版本:{{version}}</p>
-        </div>
+<body>
+  <div class="top">
+    <ul>
+      <li><a href="">Curve</a></li>
+      <li><a href="https://vertexstudio.xyz">主站</a></li>
+      <li>
+        <a href="#">下载</a>
+        <ul>
+          <li>
+            <a href="downloads/CurveLightUtility.exe">CurveLightUtility</a>
+          </li>
+          <li>
+            <a href="downloads/CurveLightUtility.cxlib">CommandCube扩展</a>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+
+  <div id="main_form">
+    <div id="center_status_div" class="surface">
+      <div id="server_run">
+        <p class="server_status" v-if="running">服务器运行中</p>
+        <p class="server_status" v-else>服务器挂了</p>
       </div>
-      <div style="clear: both"></div>
-      <br />
-      <hr style="position: relative" />
-      <div id="introduce" style="position: relative">
-        <h1>我们永远在路上</h1>
-        <h2>我们致力于营造一个良好的原版生存体验</h2>
-        <h2>尽我们所能，与玩家们成为朋友</h2>
-        <h3>我们没有模组与脚本来限制玩家的行为，但是我们有道德和规则</h3>
-        <h3>互相监督，团结互助</h3>
-        <h3>我们在努力创造Minecraft最美的一刻</h3>
+      <div id="server_info">
+        <p style="font-size: 3.5vw">Curve</p>
+        <p style="font-size: 2vw">地图名称:{{world_name}}</p>
+        <p style="font-size: 2vw">描述:{{introduction}}</p>
+        <p style="font-size: 2vw">人数:{{nowplayer}}/{{maxplayer}}</p>
+        <p style="font-size: 2vw">版本:{{version}}</p>
       </div>
-      <hr style="position: relative; top: 50px" />
-      <h1
-        style="
+    </div>
+    <div style="clear: both"></div>
+    <br />
+    <hr style="position: relative" />
+    <div id="introduce" style="position: relative">
+      <h1>我们永远在路上</h1>
+      <h2>我们致力于营造一个良好的原版生存体验</h2>
+      <h2>尽我们所能，与玩家们成为朋友</h2>
+      <h3>我们没有模组与脚本来限制玩家的行为，但是我们有道德和规则</h3>
+      <h3>互相监督，团结互助</h3>
+      <h3>我们在努力创造Minecraft最美的一刻</h3>
+    </div>
+    <hr style="position: relative; top: 50px" />
+    <h1 style="
           margin: 0 auto;
           position: relative;
           text-align: center;
           padding: 50px;
-        "
-      >
-        正在进行的建造项目
-      </h1>
-      <h3>1.CubeCity</h3>
-      <h3>2.主城</h3>
-    </div>
-    <script src="./background.js"></script>
-    <script>
-      var app = new Vue({
-        el: "#center_status_div",
-        data: {
-          running: false,
-          version: "loading",
-          world_name: "loading",
-          introduction: "loading",
-          nowplayer: "loading",
-          maxplayer: "loading",
-        },
-      });
-      var service_status;
-      function update(status, app) {
-        var Requests_link =
-          "http://chonet.top:3001/ServerStatus?OutFormat=json";
+        ">
+      正在进行的建造项目
+    </h1>
+    <h3>1.CubeCity</h3>
+    <h3>2.主城</h3>
+  </div>
+  <script>
+    var app = new Vue({
+      el: "#center_status_div",
+      data: {
+        running: false,
+        version: "loading",
+        world_name: "loading",
+        introduction: "loading",
+        nowplayer: "loading",
+        maxplayer: "loading",
+      },
+    });
+    var service_status;
+    function update(status, app) {
+      var Requests_link =
+        "http://chonet.top:3001/ServerStatus?OutFormat=json";
 
-        $.get(Requests_link, (data, textStatus) => {
-          app.running = true;
-          status = JSON.parse(data);
-          app.version = status.Version;
-          app.maxplayer = status.MaxPlayers;
-          app.nowplayer = status.NowPlayers;
-          app.world_name = status.WorldName;
-          app.introduction = status.ServerName;
-        });
-      }
-      $(document).ready(() => {
-        update(service_status, app);
-        setInterval(() => update(service_status, app), 10000);
+      $.get(Requests_link, (data, textStatus) => {
+        app.running = true;
+        status = JSON.parse(data);
+        app.version = status.Version;
+        app.maxplayer = status.MaxPlayers;
+        app.nowplayer = status.NowPlayers;
+        app.world_name = status.WorldName;
+        app.introduction = status.ServerName;
       });
-    </script>
-  </body>
+    }
+    $(document).ready(() => {
+      update(service_status, app);
+      setInterval(() => update(service_status, app), 10000);
+    });
+  </script>
+</body>
+
 </html>
