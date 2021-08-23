@@ -6,21 +6,31 @@
     <meta name="viewport" content="width=device-width,initial-scale=1.0" />
     <meta charset="utf-8" />
     <title>Minecraft Curve服务器官方网站qwq</title>
+    <script src="https://cdn.bootcdn.net/ajax/libs/marked/2.0.3/marked.js"></script>
     <script src="/js/vue.min.js"></script>
     <script src="/js/jquery.min.js"></script>
   </head>
+
   <body>
     <div class="top">
       <ul>
-        <li><a id="CurveTitle" href="">Curve</a></li>
+        <li>
+          <a style="padding: 0" href="http://cm.vertexstudio.xyz">
+            <div class="logo-box">
+              <img class="logo" src="/images/logo.png" alt="" srcset="" />
+            </div>
+          </a>
+        </li>
         <li><a href="https://vertexstudio.xyz">主站</a></li>
+        <li><a href="downloads/index.html">下载</a></li>
       </ul>
     </div>
 
     <div id="main_form">
       <div id="Welcome">
-        <p style="font-size: 3.7vw;">永远热情，永远坚守初心</p>
-        <p style="font-size: 1.8vw;">我们期望向您展示更多</p>
+        <p style="font-size: 3.7vw">保持热情，坚守初心</p>
+        <p style="font-size: 1.8vw">我们期望向您展示更多</p>
+        <button class="ok_button">好耶！</button>
       </div>
       <div id="side_status_div" class="surface">
         <div id="server_run">
@@ -28,13 +38,26 @@
           <p class="server_status" id="run_fail" v-else>服务器挂了</p>
         </div>
         <div id="server_info">
-          <p class="server_status" style="font-size: 2vw">地图名称:{{world_name}}</p>
-          <p class ="server_status" style="font-size: 2vw">人数:{{nowplayer}}/{{maxplayer}}</p>
-          <p class ="server_status" style="font-size: 2vw">版本:{{version}}</p>
+          <p class="server_status" style="font-size: 2vw">
+            地图名称:{{world_name}}
+          </p>
+          <p class="server_status" style="font-size: 2vw">
+            人数:{{nowplayer}}/{{maxplayer}}
+          </p>
+          <p class="server_status" style="font-size: 2vw">版本:{{version}}</p>
         </div>
       </div>
     </div>
+    <div class="content" style="display: none;"></div>
     <script>
+      function load(name) {
+        let xhr = new XMLHttpRequest(),
+          okStatus = document.location.protocol === "file:" ? 0 : 200;
+        xhr.open("GET", name, false);
+        xhr.overrideMimeType("text/html;charset=utf-8"); //默认为utf-8
+        xhr.send(null);
+        return xhr.status === okStatus ? xhr.responseText : null;
+      }
       var app = new Vue({
         el: "#side_status_div",
         data: {
@@ -61,9 +84,15 @@
         });
       }
       $(document).ready(() => {
+        $(".content").html(
+          marked(load("/texts/Curve.md"))
+        );
         update(service_status, app);
         setInterval(() => update(service_status, app), 10000);
       });
+      $(".ok_button").on("click",()=>{
+        $(".content").css("display","block")
+      })
     </script>
   </body>
 </html>
