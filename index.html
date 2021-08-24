@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1.0" />
     <meta charset="utf-8" />
     <title>Minecraft Curve服务器官方网站qwq</title>
-    <script src="https://cdn.bootcdn.net/ajax/libs/marked/2.0.3/marked.js"></script>
+    <script src="js/marked.js"></script>
     <script src="/js/vue.min.js"></script>
     <script src="/js/jquery.min.js"></script>
   </head>
@@ -49,15 +49,8 @@
       </div>
     </div>
     <div class="content" style="display: none;"></div>
+    <a href="minecraft://?addExternalSever=chonet.top:11264">现在尝试</a>
     <script>
-      function load(name) {
-        let xhr = new XMLHttpRequest(),
-          okStatus = document.location.protocol === "file:" ? 0 : 200;
-        xhr.open("GET", name, false);
-        xhr.overrideMimeType("text/html;charset=utf-8"); //默认为utf-8
-        xhr.send(null);
-        return xhr.status === okStatus ? xhr.responseText : null;
-      }
       var app = new Vue({
         el: "#side_status_div",
         data: {
@@ -84,9 +77,13 @@
         });
       }
       $(document).ready(() => {
-        $(".content").html(
-          marked(load("/texts/Curve.md"))
+        $.get("http://chonet.top:8848/gitcdn/cm.vertexstudio.xyz-gh-pages/texts/Curve.md",(data, textStatus)=>{
+          md_text=data
+          console.log(md_text)
+          $(".content").html(
+          marked(md_text)
         );
+        });
         update(service_status, app);
         setInterval(() => update(service_status, app), 10000);
       });
