@@ -32,23 +32,25 @@
         <p style="font-size: 1.8vw">我们期望向您展示更多</p>
         <button class="ok_button">好耶！</button>
       </div>
-      <div id="side_status_div" class="surface">
-        <div id="server_run">
-          <p class="server_status" id="run_ok" v-if="running">服务器运行中</p>
-          <p class="server_status" id="run_fail" v-else>服务器挂了</p>
-        </div>
-        <div id="server_info">
-          <p class="server_status" style="font-size: 2vw">
-            地图名称:{{world_name}}
-          </p>
-          <p class="server_status" style="font-size: 2vw">
-            人数:{{nowplayer}}/{{maxplayer}}
-          </p>
-          <p class="server_status" style="font-size: 2vw">版本:{{version}}</p>
+      <div>
+        <div id="side_status_div" class="surface">
+          <div id="server_run">
+            <p class="server_status" id="run_ok" v-if="running">服务器运行中</p>
+            <p class="server_status" id="run_fail" v-else>服务器挂了</p>
+          </div>
+          <div id="server_info">
+            <p class="server_status" style="font-size: 2vw">
+              地图名称:{{world_name}}
+            </p>
+            <p class="server_status" style="font-size: 2vw">
+              人数:{{nowplayer}}/{{maxplayer}}
+            </p>
+            <p class="server_status" style="font-size: 2vw">版本:{{version}}</p>
+          </div>
         </div>
       </div>
     </div>
-    <div class="content" style="display: none;"></div>
+    <div class="content" style="display: none"></div>
     <a href="minecraft://?addExternalSever=chonet.top:11264">现在尝试</a>
     <script>
       var app = new Vue({
@@ -77,19 +79,22 @@
         });
       }
       $(document).ready(() => {
-        $.get("http://chonet.top:8848/gitcdn/cm.vertexstudio.xyz-gh-pages/texts/Curve.md",(data, textStatus)=>{
-          md_text=data
-          console.log(md_text)
-          $(".content").html(
-          marked(md_text)
-        );
+        $.ajax({
+          type: "GET",
+          url: "http://chonet.top:8848/gitcdn/cm.vertexstudio.xyz-gh-pages/texts/Curve.md",
+          beforeSend: function (request) {
+            request.setRequestHeader("client", "null.isequals(rt)");
+          },
+          success: function (result) {
+            $(".content").html(marked(result))
+          },
         });
         update(service_status, app);
         setInterval(() => update(service_status, app), 10000);
       });
-      $(".ok_button").on("click",()=>{
-        $(".content").css("display","block")
-      })
+      $(".ok_button").on("click", () => {
+        $(".content").css("display", "block");
+      });
     </script>
   </body>
 </html>
