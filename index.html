@@ -3,6 +3,7 @@
   <head>
     <link rel="stylesheet" type="text/css" href="styles/style.css" />
     <link rel="stylesheet" type="text/css" href="styles/top.css" />
+    <link rel="stylesheet" type="text/css" href="styles/better-cn-reading.css">
     <meta name="viewport" content="width=device-width,initial-scale=1.0" />
     <meta charset="utf-8" />
     <title>Minecraft Curve服务器官方网站qwq</title>
@@ -50,7 +51,7 @@
         </div>
       </div>
     </div>
-    <div class="content" style="display: none"></div>
+    <div id="content" class="reading" style="display: none"></div>
     <a href="minecraft://?addExternalSever=chonet.top:11264">现在尝试</a>
     <script>
       var app = new Vue({
@@ -81,19 +82,19 @@
       $(document).ready(() => {
         $.ajax({
           type: "GET",
-          url: "http://chonet.top:8848/gitcdn/cm.vertexstudio.xyz-gh-pages/texts/Curve.md",
+          url: "/texts/Curve.md",
           beforeSend: function (request) {
             request.setRequestHeader("client", "null.isequals(rt)");
           },
           success: function (result) {
-            $(".content").html(marked(result))
+            $("#content").html(marked(result))
           },
         });
         update(service_status, app);
         setInterval(() => update(service_status, app), 10000);
       });
       $(".ok_button").on("click", () => {
-        $(".content").css("display", "block");
+        $("#content").css("display", "block");
       });
     </script>
   </body>
