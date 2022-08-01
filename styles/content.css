@@ -1,0 +1,44 @@
+/*
+这个文件是描述top栏下面的封面
+
+坚守初心下面那个文字是可以点击的，点击之后跳到加入我们的那个地方
+*/
+.content {
+    position: relative;
+    height: 70%;
+    width: 100%;
+    box-sizing: border-box;
+    background-color: rgb(196, 255, 252);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.content #heart {
+    font-size: 8vw;
+    color: aquamarine;
+    /*坚守初心文作在这*/
+
+}
+
+/*下面三个都是”我们一直在这“的样式*/
+.content #contact {
+    font-size: 1.5vw;
+    color: azure;
+    text-decoration: none;
+}
+
+.content #contact:hover {
+    color: aquamarine;
+}
+
+.content #contact::after {
+    /*这边是文本的下划线*/
+    content: "";
+    display: block;
+    background: linear-gradient(to right, #3b96e0, rgb(229, 114, 240));
+    width: 100%;
+    height: 2px;
+}

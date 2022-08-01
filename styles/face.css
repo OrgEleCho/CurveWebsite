@@ -1,0 +1,7 @@
+/*face就是指content+status的区域*/
+.face{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+}

@@ -1,24 +1,29 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <link rel="stylesheet" type="text/css" href="styles/style.css" />
-    <link rel="stylesheet" type="text/css" href="styles/top.css" />
-    <link rel="stylesheet" type="text/css" href="styles/better-cn-reading.css">
-    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
-    <meta charset="utf-8" />
-    <title>Minecraft Curve服务器官方网站qwq</title>
-    <script src="js/marked.js"></script>
-    <script src="/js/vue.min.js"></script>
-    <script src="/js/jquery.min.js"></script>
-  </head>
 
-  <body>
+<head>
+  <link rel="stylesheet" type="text/css" href="styles/content.css" />
+  <link rel="stylesheet" type="text/css" href="styles/top.css" />
+  <link rel="stylesheet" type="text/css" href="styles/body.css" />
+  <link rel="stylesheet" type="text/css" href="styles/status.css" />
+  <link rel="stylesheet" type="text/css" href="styles/face.css" />
+  <link rel="stylesheet" type="text/css" href="styles/join.css" />
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.7.8/dist/vue.js"></script>
+  <!-- <script src="https://cdn.jsdelivr.net/npm/vue@2.7.8"></script> -->
+  <script src="https://unpkg.com/http-vue-loader"></script>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+  <meta charset="utf-8" />
+  <title>Minecraft Curve服务器官方网站qwq</title>
+</head>
+
+<body>
+  <div class="face">
     <div class="top">
       <ul>
         <li>
           <a style="padding: 0" href="http://cm.vertexstudio.xyz">
             <div class="logo-box">
-              <img class="logo" src="/images/logo.png" alt="" srcset="" />
+              <img class="logo" src="/images/NApp.png" style="border-radius: 9px;" alt="" srcset="" />
             </div>
           </a>
         </li>
@@ -26,76 +31,55 @@
         <li><a href="downloads/index.html">下载</a></li>
       </ul>
     </div>
+    <div class="content">
+      <span id="heart">坚守初心</span>
+      <a href="#join-div" id="contact" title="加入我们">我们一直在这里</a>
+    </div>
+    <div class="status">
 
-    <div id="main_form">
-      <div id="Welcome">
-        <p style="font-size: 3.7vw">保持热情，坚守初心</p>
-        <p style="font-size: 1.8vw">我们期望向您展示更多</p>
-        <button class="ok_button">好耶！</button>
-      </div>
-      <div>
-        <div id="side_status_div" class="surface">
-          <div id="server_run">
-            <p class="server_status" id="run_ok" v-if="running">服务器运行中</p>
-            <p class="server_status" id="run_fail" v-else>无法获取信息</p>
-          </div>
-          <div id="server_info">
-            <p class="server_status" style="font-size: 2vw">
-              地图名称:{{world_name}}
-            </p>
-            <p class="server_status" style="font-size: 2vw">
-              人数:{{nowplayer}}/{{maxplayer}}
-            </p>
-            <p class="server_status" style="font-size: 2vw">版本:{{version}}</p>
-          </div>
-        </div>
+    </div>
+  </div>
+  <div class="join" id="join-div">
+    <div id="title">希望加入我们？</div>
+    <img id="routine"src="/images/join-routinue.svg" alt="" srcset="">
+    <div id="contacts">
+      <div v-for="contact in contacts">
+        <contactcard :contact="contact"></contactcard>
       </div>
     </div>
-    <div id="content" class="reading" style="display: none"></div>
-    <a href="minecraft://?addExternalSever=chonet.top:11264">现在尝试</a>
-    <script>
-      var app = new Vue({
-        el: "#side_status_div",
-        data: {
-          running: false,
-          version: "loading",
-          world_name: "loading",
-          nowplayer: "loading",
-          maxplayer: "loading",
-        },
-      });
-      var service_status;
-      function update(status, app) {
-        var Requests_link =
-          "http://chonet.top:3001/ServerStatus?OutFormat=json";
+    <div style="clear:both"></div>
 
-        $.get(Requests_link, (data, textStatus) => {
-          app.running = true;
-          status = JSON.parse(data);
-          app.version = status.Version;
-          app.maxplayer = status.MaxPlayers;
-          app.nowplayer = status.NowPlayers;
-          app.world_name = status.WorldName;
-          app.introduction = status.ServerName;
-        });
+  </div>
+
+
+
+
+  <script type="text/javascript">
+    var availiableContact = [{
+      site: "B站",
+      name: "星萃沫瞳 CimiMoly",
+      dest: "https://space.bilibili.com/373454723",
+      tip: "加入优先找他哦"
+    }, {
+      site: "B站",
+      name: "SlimeNull",
+      dest: "https://space.bilibili.com/441842015",
+      tip: "服务器掌柜，找第一位不行的这位都能解决哦"
+    }]
+    Vue.use(httpVueLoader)
+    new Vue({
+      el: ".status"
+    })
+    new Vue({
+      el: ".join",
+      components: {
+        'contactcard': 'url:/components/contactCard.vue'
+      },
+      data: {
+        contacts: availiableContact
       }
-      $(document).ready(() => {
-        $.ajax({
-          type: "GET",
-          url: "/texts/Curve.md",
-          beforeSend: function (request) {
-            request.setRequestHeader("client", "null.isequals(rt)");
-          },
-          success: function (result) {
-            $("#content").html(marked(result))
-          },
-        });
-        update(service_status, app);
-        setInterval(() => update(service_status, app), 10000);
-      });
-      $(".ok_button").on("click", () => {
-        $("#content").css("display", "block");
-      });
-    </script>
-  </body>
+    })
+  </script>
+</body>
+
 </html>

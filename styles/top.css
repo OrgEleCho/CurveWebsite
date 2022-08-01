@@ -1,6 +1,6 @@
 .top {
   box-sizing: border-box;
-  position: absolute;
+  position: relative;
   /* 设置宽度高度背景颜色 */
   flex-direction: column;
   overflow: visible;
@@ -9,7 +9,6 @@
   position: relative; /*固定在顶部*/
   left: 0;
   top: 0; /*离顶部的距离为0*/
-  backdrop-filter:blur(2px);
 }
 .top ul {
   display: flex;
