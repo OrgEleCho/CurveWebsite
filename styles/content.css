@@ -5,10 +5,13 @@
 */
 .content {
     position: relative;
-    height: 70%;
+    flex: 1;
     width: 100%;
     box-sizing: border-box;
-    background-color: rgb(20,20,20);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-image: url("https://pic1.afdiancdn.com/user/6e896a724cde11ea8f4e52540025c377/common/1e0efb752d08f252d347536000ecc478_w1920_h1080_s2232.png");
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -17,14 +20,16 @@
 }
 
 .content #heart {
+    z-index: 1;
     font-size: 8vw;
     color: aquamarine;
-    /*坚守初心文作在这*/
+    /*坚守初心在这*/
 
 }
 
 /*下面三个都是”我们一直在这“的样式*/
 .content #contact {
+    z-index: 1;
     font-size: 1.5vw;
     color: azure;
     text-decoration: none;
@@ -41,4 +46,12 @@
     background: linear-gradient(to right, #3b96e0, rgb(229, 114, 240));
     width: 100%;
     height: 2px;
+}
+.content .background-mask{
+    display: block;
+    height: inherit;
+    width: 100%;
+    height:100%;
+    position: absolute;
+    background-color: rgba(19, 19, 19, 0.6);
 }

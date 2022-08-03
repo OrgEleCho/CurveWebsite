@@ -7,7 +7,8 @@
   <link rel="stylesheet" type="text/css" href="styles/body.css" />
   <link rel="stylesheet" type="text/css" href="styles/status.css" />
   <link rel="stylesheet" type="text/css" href="styles/face.css" />
-  <link rel="stylesheet" type="text/css" href="styles/join.css" />
+  <link rel="stylesheet" type="text/css" href="styles/about.css" />
+  <link rel="stylesheet" href="styles/fontawesome/css/font-awesome.min.css">
   <script src="https://cdn.jsdelivr.net/npm/vue@2.7.8/dist/vue.js"></script>
   <!-- <script src="https://cdn.jsdelivr.net/npm/vue@2.7.8"></script> -->
   <script src="https://unpkg.com/http-vue-loader"></script>
@@ -32,24 +33,15 @@
         <li><a href="downloads/index.html">下载</a></li>
       </ul>
     </div>
+
     <div class="content">
+      <div class="background-mask"></div>
       <span id="heart">坚守初心</span>
       <a href="#join-div" id="contact" title="加入我们">我们一直在这里</a>
     </div>
-    <div class="status">
-
-    </div>
   </div>
-  <div class="join" id="join-div">
-    <div id="title">希望加入我们？</div>
-    <img id="routine"src="/images/join-routinue.svg" alt="" srcset="">
-    <div id="contacts">
-      <div v-for="contact in contacts">
-        <contactcard :contact="contact"></contactcard>
-      </div>
-    </div>
-    <div style="clear:both"></div>
-
+  <div class="about">
+    <div style="">挺好</div>
   </div>
 
 
@@ -74,7 +66,8 @@
     new Vue({
       el: ".join",
       components: {
-        'contactcard': 'url:/components/contactCard.vue'
+        'contactcard': 'url:/components/contactCard.vue',
+        'flex-div': "url:/components/flexdiv.vue"
       },
       data: {
         contacts: availiableContact
