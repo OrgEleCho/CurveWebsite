@@ -23,6 +23,15 @@ function getServerStatus() {
     if (a === undefined) {
         return undefined
     } else {
-        return JSON.parse(a)
+        var temp = JSON.parse(a)
+        return {
+            GameMode: temp.GameMode,
+            LevelName: temp.LevelName,
+            MaxPlayers: temp.MaxPlayers,
+            Online: temp.Online,
+            Players: temp.Players,
+            ServerName: temp.ServerName,
+            Version: temp.Version
+        }
     }
 }
