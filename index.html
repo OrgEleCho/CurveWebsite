@@ -37,11 +37,14 @@
     <div class="content">
       <div class="background-mask"></div>
       <span id="heart">坚守初心</span>
-      <a href="#join-div" id="contact" title="加入我们">我们一直在这里</a>
+      <a href="#about-div" id="contact" title="加入我们">我们一直在这里</a>
     </div>
   </div>
-  <div class="about">
-    <div style="">挺好</div>
+  <div class="about" id="about-div">
+    
+    <flex-div>
+      <div>挺好</div>
+    </flex-div>
   </div>
 
 
@@ -61,10 +64,7 @@
     }]
     Vue.use(httpVueLoader)
     new Vue({
-      el: ".status"
-    })
-    new Vue({
-      el: ".join",
+      el: ".about",
       components: {
         'contactcard': 'url:/components/contactCard.vue',
         'flex-div': "url:/components/flexdiv.vue"

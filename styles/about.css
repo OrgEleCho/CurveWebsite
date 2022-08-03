@@ -1,7 +1,15 @@
 .about{
-    position: relative;
+    width: 100%;
     height: 100%;
     box-sizing: border-box;
     background-color: rgb(235, 235, 235);
-    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: -100px;
+    z-index: -1;
+}
+.about > *{
+    position: relative;
+    z-index: 2;
 }
