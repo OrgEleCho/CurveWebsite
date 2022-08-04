@@ -41,10 +41,30 @@
     </div>
   </div>
   <div class="about" id="about-div">
-    
-    <flex-div>
-      <div>挺好</div>
-    </flex-div>
+    <div id="card" class="contact">
+      <div>
+        <p style="font-size:2vw;">末末</p>
+      </div>
+      <div style="background-color: rgb(20, 20, 20);width:2px;border-radius: 1px;"></div>
+      <div>
+        <p style="font-size:3vw;">日天</p>
+      </div>
+    </div>
+    <div id="card" class="status">
+      <h1>服务器状态</h1>
+      <span v-show="!status.Online">服务器不在线</span>
+      <p>服务器:{{status.ServerName}}</p>
+      <p>游戏模式:{{status.GameMode}}</p>
+      <p>玩家:{{status.Players}}/{{status.MaxPlayers}}</p>
+      <p>世界名:{{status.LevelName}}</p>
+      <p>版本:{{status.Version}}</p>
+    </div>
+    <div id="card" class="policy">
+      <h1>你需要知道的</h1>
+
+
+
+    </div>
   </div>
 
 
@@ -63,16 +83,24 @@
       tip: "服务器掌柜，找第一位不行的这位都能解决哦"
     }]
     Vue.use(httpVueLoader)
-    new Vue({
+    var app = new Vue({
       el: ".about",
       components: {
-        'contactcard': 'url:/components/contactCard.vue',
-        'flex-div': "url:/components/flexdiv.vue"
+        'contactcard': 'url:/components/contactCard.vue'
       },
       data: {
-        contacts: availiableContact
+        contacts: availiableContact,
+        status: { Online: false }
+      },
+      methods: {
+        updateStatus: function () {
+          this.status = getServerStatus();
+        }
       }
     })
+    window.onload = function () {
+      app.updateStatus()
+    }
   </script>
 </body>
 
