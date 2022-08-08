@@ -1,0 +1,93 @@
+﻿@inherits LayoutComponentBase
+
+<div class="page">
+    <main>
+        <header id="mainheader">
+            <nav class="navbar navbar-expand navbar-dark container">
+                <div class="container-fluid">
+                    <a class="navbar-brand" href="#">Curve</a>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                        <ul class="navbar-nav">
+                            <li class="nav-item">
+                                <NavLink class="nav-link" href="/">主页</NavLink>
+                            </li>
+                            <li class="nav-item">
+                                <NavLink class="nav-link" href="/document">文档</NavLink>
+                            </li>
+                            <li class="nav-item">
+                                <NavLink class="nav-link" href="/join">加入</NavLink>
+                            </li>
+                            <li class="nav-item">
+                                <NavLink class="nav-link" href="/download">下载</NavLink>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    友链
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li><a class="dropdown-item" href="https://vertillusion.xyz/">Vertillusion</a></li>
+                                    <li><a class="dropdown-item" href="https://blog.slimenull.top">SlimeNull</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                    <form class="d-flex justify-content-end">
+                        <button class="btn btn-outline-success" type="button">服务器状态</button>
+                    </form>
+                </div>
+            </nav>
+        </header>
+        <div>
+            @Body
+        </div>
+
+        <footer class="section-lg bg-dark py-5">
+            <div class="container">
+                <div>
+                    <div class="row">
+                        <div class="col-md-4 d-flex">
+                            <img class="logo rounded me-3" src="/img/curve.jpg"/>
+                            <div class="text-light">
+                                <h1>Curve</h1>
+                                <h4>创造属于你的一切</h4>
+                            </div>
+                        </div>
+                        <div class="col-md-2">
+                            <strong>链接</strong>
+                        </div>
+                        <div class="col-md-2">
+                            <strong>手册</strong>
+                        </div>
+                        <div class="col-md-2">
+                            <strong>项目</strong>
+                        </div>
+                        <div class="col-md-2">
+                            <strong>社区</strong>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </main>
+</div>
+
+<style>
+    #mainheader {
+        background-color: #252a33;
+    }
+    footer {
+        color: #cacaca;
+    }
+    footer .logo {
+        width: 4em;
+        height: 4em;
+        box-shadow: 1px 1px 3px gray;
+    }
+    footer .logo:hover {
+        transform: rotate(-7deg) scale(1.1);
+    }
+</style>
